@@ -3,15 +3,20 @@ import AboutUs from './components/AboutUs';
 import LifeSkills from './components/LifeSkills';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import OurActivities from './components/OurActivities';
+import OurTeachers from './components/OurTeachers';
 
 const App = () => {
   return (
-    <div className='section-center'>
+    <main className='section-center'>
       <Navbar />
+
       <Hero />
       <AboutUs />
       <LifeSkills />
-    </div>
+      <OurActivities />
+      <OurTeachers />
+    </main>
   );
 };
 
