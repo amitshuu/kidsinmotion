@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import AboutUsPhoto from '../assets/dummy.png';
 import DummyIcon from '../assets/dummy_icon.png';
+import Container from './Container';
 import AboutUs2 from './LifeSkills';
 
 const AboutUs = () => {
   return (
     <Wrapper>
-      <Title>קצת עלינו</Title>
+      <h1 className='title'>קצת עלינו</h1>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Container>
+        <Container padding='3rem 5rem'>
           <TextContainer>
             <SubTitleDiv>
               <SubTitle>Kids In Motion</SubTitle>
@@ -43,29 +44,14 @@ const AboutUs = () => {
 
 export default AboutUs;
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
 `;
-const Title = styled.h1`
-  font-size: 62px;
-  margin-bottom: 3rem;
-  color: #333;
-  border-bottom: 5px solid var(--clr-orange-title);
-`;
 
-const Container = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 3rem 5rem;
-  margin-bottom: 3rem;
-  background-color: #81808013;
-  align-items: center;
-  border-radius: 16px;
-`;
 const ImageContainer = styled.div`
   display: flex;
   width: 100%;
