@@ -2,12 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { life_skills } from '../utils/lifeSkills';
 import { SkillType } from '../utils/types';
+import Container from './Container';
 
 const LifeSkills = () => {
   return (
     <Wrapper>
-      <Title>במשך השנה הילדים ירכשו כלים לחיים</Title>
-      <Container>
+      <p className='title'>
+        במשך השנה
+        <br /> הילדים ירכשו כלים לחיים
+      </p>
+
+      <Container padding='3.5rem 4rem'>
         <SkillsContainer>
           {life_skills.map((skill: SkillType) => {
             return (
@@ -28,24 +33,7 @@ export default LifeSkills;
 
 const Wrapper = styled.div`
   text-align: center;
-`;
-const Title = styled.p`
-  display: inline-block;
-  font-size: 62px;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #333;
-  border-bottom: 5px solid var(--clr-orange-title);
-`;
-
-const Container = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 3.5rem 4rem;
-  margin-bottom: 3rem;
-  background-color: #81808013;
-  align-items: center;
-  border-radius: 16px;
+  margin-top: 3rem;
 `;
 
 const SkillsContainer = styled.div`
