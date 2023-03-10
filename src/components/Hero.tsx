@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import bird from '../assets/bird.png';
+// import Container from './Container';
 const Hero = () => {
   return (
     <HeroWrapper>
+      {/* <Container> */}
       <Container>
         <HeroImageDiv>
           <HeroImg src={bird} />
@@ -24,6 +26,7 @@ const Hero = () => {
             <HeroButton>עוד עלינו</HeroButton>
           </ButtonContainer>
         </HeroTextDiv>
+        {/* </Container> */}
       </Container>
     </HeroWrapper>
   );
@@ -31,7 +34,7 @@ const Hero = () => {
 
 export default Hero;
 
-const HeroWrapper = styled.div`
+const HeroWrapper = styled.section`
   margin: 5rem auto;
   display: flex;
   width: 100%;
@@ -80,16 +83,16 @@ const HeroTitle = styled.h1`
   line-height: 120%;
   margin-bottom: 1rem;
   color: var(--clr-orange-title);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   direction: rtl;
 `;
 
 const HeroDescription = styled.p`
   direction: rtl;
-  font-size: 22px;
+  font-size: 24px;
   color: #333;
   font-weight: 400;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   line-height: 160%;
   .description {
   }
