@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutUs from './components/AboutUs';
-import AboutUs2 from './components/AboutUs2';
+import LifeSkills from './components/LifeSkills';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 
@@ -10,7 +10,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <AboutUs />
-      <AboutUs2 />
+      <LifeSkills />
     </div>
   );
 };

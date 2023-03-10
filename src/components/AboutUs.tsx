@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AboutUsPhoto from '../assets/dummy.png';
 import DummyIcon from '../assets/dummy_icon.png';
-import AboutUs2 from './AboutUs2';
+import AboutUs2 from './LifeSkills';
 
 const AboutUs = () => {
   return (
