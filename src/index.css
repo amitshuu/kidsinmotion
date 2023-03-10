@@ -1,0 +1,22 @@
+:root {
+  --clr-orange-title: #ff914d;
+  --clr-red-title: #ff5757;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* background-color: #fae0cf47; */
+}
+
+.section-center {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
