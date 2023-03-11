@@ -2,29 +2,35 @@ import React from 'react';
 import styled from 'styled-components';
 import AboutUsPhoto from '../assets/dummy.png';
 import DummyIcon from '../assets/dummy_icon.png';
-import Container from './Container';
+import { mobile } from '../utils/responsive';
+import { Element } from 'react-scroll';
+// import Container from './Container';
 import AboutUs2 from './LifeSkills';
 
 const AboutUs = () => {
   return (
-    <Wrapper>
-      <h1 className='title'>קצת עלינו</h1>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Container padding='3rem 5rem'>
-          <TextContainer>
-            <SubTitleDiv>
-              <SubTitle>Kids In Motion</SubTitle>
-              <img style={{ width: '50px', height: '50px' }} src={DummyIcon} />
-            </SubTitleDiv>
-            <Description>
-              העסק שלנו מוקדש לספק פעילויות מהנות ומרתקות לילדים. אנו מציעים
-              הופעות בשילוב קהל, שיעורים וסדנאות שנתיות בכדי לעזור לילדים לפתח
-              את כישוריהם בנושאים מגוונים כמו פיתוח כישורי מוטוריקה
-              וקואורדינציה. המדריכים המנוסים שלנו נלהבים לעבוד עם ילדים וליצור
-              סביבת למידה חיובית ותומכת. אנו מאמינים בחשיבות של מתן הזדמנויות
-              לתלמידים לחקור את תחומי העניין שלהם ולפתח מיומנויות חדשות.
-            </Description>
-            {/* <Description>
+    <Element name='about-us'>
+      <Wrapper id='about-us'>
+        <h1 className='title'>קצת עלינו</h1>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Container>
+            <TextContainer>
+              <SubTitleDiv>
+                <SubTitle>Kids In Motion</SubTitle>
+                <img
+                  style={{ width: '50px', height: '50px' }}
+                  src={DummyIcon}
+                />
+              </SubTitleDiv>
+              <Description>
+                העסק שלנו מוקדש לספק פעילויות מהנות ומרתקות לילדים. אנו מציעים
+                הופעות בשילוב קהל, שיעורים וסדנאות שנתיות בכדי לעזור לילדים לפתח
+                את כישוריהם בנושאים מגוונים כמו פיתוח כישורי מוטוריקה
+                וקואורדינציה. המדריכים המנוסים שלנו נלהבים לעבוד עם ילדים וליצור
+                סביבת למידה חיובית ותומכת. אנו מאמינים בחשיבות של מתן הזדמנויות
+                לתלמידים לחקור את תחומי העניין שלהם ולפתח מיומנויות חדשות.
+              </Description>
+              {/* <Description>
               החזון שלנו הוא להפוך כל ילד וילדה לרקדני בית הספר ולהביא איתנו
               משהו חדש ומיוחד, עולם ההיפ הופ והברייקדאנס בפרט. הרעיון הוא לשבור
               שגרה וללמוד דרך המוזיקה והריקוד שיעור לחיים! הרצון שלנו להביא
@@ -32,13 +38,14 @@ const AboutUs = () => {
               וילדה אם זה בקבוצה או לחוד. הילדים ילמדו שבלתי אפשרי יכול הפוך
               לאפשרי עם קצת ידע והמון רצון !
             </Description> */}
-          </TextContainer>
-          <ImageContainer>
-            <Image src={AboutUsPhoto} alt='about-us_photo' />
-          </ImageContainer>
-        </Container>
-      </div>
-    </Wrapper>
+            </TextContainer>
+            <ImageContainer>
+              <Image src={AboutUsPhoto} alt='about-us_photo' />
+            </ImageContainer>
+          </Container>
+        </div>
+      </Wrapper>
+    </Element>
   );
 };
 
@@ -50,6 +57,24 @@ const Wrapper = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
+  .title {
+    ${mobile({ fontSize: '46px' })};
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 0;
+  background-color: #81808013;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 3rem 5rem;
+  ${mobile({
+    flexDirection: 'column',
+    padding: '1rem',
+  })}/* max-height: 250px; */
 `;
 
 const ImageContainer = styled.div`
@@ -69,10 +94,17 @@ const Description = styled.p`
   letter-spacing: 1px;
   font-size: 22px;
   color: #333;
+  ${mobile({
+    fontSize: '18px',
+    letterSpacing: '0px',
+    margin: '1rem 0rem',
+    textAlign: 'center',
+  })}
 `;
 const Image = styled.img`
   width: 85%;
   border-radius: 1rem;
+  ${mobile({ display: 'none' })}
 `;
 
 const SubTitle = styled.p`
@@ -83,10 +115,14 @@ const SubTitle = styled.p`
   font-weight: 600;
   margin-right: 1rem;
   margin-bottom: 0.5rem;
+
+  ${mobile({ fontSize: '32px', letterSpacing: '0px' })}
 `;
 
 const SubTitleDiv = styled.div`
   display: flex;
+  justify-content: center;
   text-align: center;
+  width: 100%;
   margin: 0 auto;
 `;

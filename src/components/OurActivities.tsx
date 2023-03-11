@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './Container';
 import breakdance from '../assets/breakdanceee.jpg';
 import hiphop from '../assets/hip-hop.jpg';
 import capoeira from '../assets/capoeira.jpg';
 import workshop from '../assets/workshops.jpg';
+import { mobile } from '../utils/responsive';
+import { Element } from 'react-scroll';
 
 const OurActivities = () => {
   return (
-    <Wrapper>
-      <h2 className='title'> ✨ הפעילויות שלנו</h2>
+    <Element name='activities'>
+      <Wrapper>
+        <h2 className='title'> ✨ הפעילויות שלנו</h2>
 
-      <Container padding='3rem 2rem'>
-        <div className='test'>
+        <Container>
           <Title>
             מחפשים פעילות מהנה ובריאה לילדים שלכם?
             <br /> <p>שיעורי הריקוד שלנו הם הדרך המושלמת לגרום להם לזוז!</p>
@@ -39,9 +40,9 @@ const OurActivities = () => {
               </TextDiv>
             </ActivityDiv>
           </ActivitiesFlex>
-        </div>
-      </Container>
-    </Wrapper>
+        </Container>
+      </Wrapper>
+    </Element>
   );
 };
 
@@ -51,6 +52,9 @@ const Wrapper = styled.section`
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  .title {
+    ${mobile({ fontSize: '42px' })};
+  }
   .test {
     display: flex;
     width: 100%;
@@ -58,10 +62,23 @@ const Wrapper = styled.section`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  background-color: #81808013;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+`;
+
 const ActivitiesFlex = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  ${mobile({ flexWrap: 'wrap' })}
 `;
 
 const ActivityDiv = styled.div<{ imageUrl: string }>`
@@ -75,9 +92,9 @@ const ActivityDiv = styled.div<{ imageUrl: string }>`
   background-size: cover;
   height: 250px;
   align-items: end;
-  position: relative;
   flex-direction: row-reverse;
   box-shadow: 0px -80px 54px -17px rgba(0, 0, 0, 0.62) inset;
+  ${mobile({ width: '100%', marginBottom: '2rem' })}
 `;
 const TextDiv = styled.div`
   margin-right: 1rem;
@@ -97,10 +114,11 @@ const Title = styled.p`
   font-size: 32px;
   font-weight: 600;
   color: #333;
+  ${mobile({ fontSize: '28px' })}
   p {
     display: inline-block;
     font-weight: 500;
-    /* border-bottom: 3px solid var(--clr-red-title); */
     letter-spacing: 1px;
+    ${mobile({ marginTop: '12px' })}
   }
 `;
