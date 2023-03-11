@@ -16,7 +16,6 @@ const App = () => {
       <LifeSkills />
       <OurActivities />
       <OurTeachers />
-
       <Gallery />
     </main>
   );
