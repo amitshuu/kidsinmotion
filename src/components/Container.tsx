@@ -23,6 +23,7 @@ const Wrapper = styled.div<{ padding: string; maxHeight?: string }>`
   padding: ${({ padding }) => padding};
   /* margin-bottom: 3rem; */
   background-color: #81808013;
+
   align-items: center;
   justify-content: center;
   border-radius: 16px;

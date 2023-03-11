@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './Container';
-import yaniv from '../assets/yanivvvv.png';
+import yaniv from '../assets/image.jpg';
+import { mobile } from '../utils/responsive';
 const OurTeachers = () => {
   return (
     <Wrapper>
       <h2 className='title'> הצוות שלנו</h2>
 
-      <Container padding='3rem 4rem'>
+      <Container>
         <TeachersArticle>
           <TeacherDiv>
             <TeacherImage src={yaniv} />
@@ -56,19 +56,39 @@ export default OurTeachers;
 const Wrapper = styled.section`
   text-align: center;
   margin-bottom: 3rem;
+  .title {
+    ${mobile({ fontSize: '42px' })};
+  }
+`;
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 3rem 4rem;
+  background-color: #81808013;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  ${mobile({ padding: '1.5rem' })}
 `;
 const TeachersArticle = styled.article`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  ${mobile({
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  })}
 `;
 const TeacherDiv = styled.div`
   display: flex;
   width: 30%;
+  max-width: 450px;
   text-align: center;
   flex-direction: column;
   background-color: #fff;
   border-radius: 16px;
+  ${mobile({ width: '100%', marginBottom: '2rem' })}
 `;
 const TeacherImage = styled.img`
   border-radius: 16px 16px 0px 0px;

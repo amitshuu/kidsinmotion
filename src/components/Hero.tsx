@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import bird from '../assets/bird.png';
-// import Container from './Container';
+import { mobile } from '../utils/responsive';
 const Hero = () => {
   return (
     <HeroWrapper>
-      {/* <Container> */}
       <Container>
         <HeroImageDiv>
           <HeroImg src={bird} />
@@ -26,7 +25,6 @@ const Hero = () => {
             <HeroButton>עוד עלינו</HeroButton>
           </ButtonContainer>
         </HeroTextDiv>
-        {/* </Container> */}
       </Container>
     </HeroWrapper>
   );
@@ -50,6 +48,7 @@ const Container = styled.div`
   width: 100%;
   padding: 0rem 5rem;
   max-height: 250px;
+  ${mobile({ maxHeight: '175px' })}
 `;
 const HeroImageDiv = styled.div`
   display: flex;
@@ -65,6 +64,7 @@ const HeroTextDiv = styled.div`
   span {
     color: var(--clr-red-title);
   }
+  ${mobile({ display: 'none' })}
 `;
 
 const HeroImg = styled.img`
@@ -76,6 +76,7 @@ const HeroImg = styled.img`
 const ImgTitle = styled.p`
   font-size: 48px;
   letter-spacing: 3px;
+  font-weight: 600;
   color: #333;
 `;
 const HeroTitle = styled.h1`
