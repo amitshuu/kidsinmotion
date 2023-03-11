@@ -12,7 +12,17 @@
 body {
   font-family: 'Lato', sans-serif;
   font-family: 'Poppins', sans-serif;
-  /* background-color: #f4f4f4; */
+  overflow: none;
+  /* background-image: radial-gradient(
+    circle 343px at 46.3% 47.5%,
+    rgba(242, 242, 242, 1) 0%,
+    rgba(241, 241, 241, 1) 72.9%
+  ); */
+  /* background-image: radial-gradient(
+    circle 993px at 0.5% 50.5%,
+    rgba(137, 171, 245, 0.37) 0%,
+    rgba(245, 247, 252, 1) 100.2%
+  ); */
 }
 
 .section-center {
@@ -22,7 +32,7 @@ body {
 }
 
 .title {
-  font-size: 62px;
+  font-size: 58px;
   margin-bottom: 3rem;
   display: inline-block;
   text-align: center;
