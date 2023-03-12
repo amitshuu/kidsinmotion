@@ -1,59 +1,79 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { slide_images } from '../utils/imageSlides';
-import 'react-slideshow-image/dist/styles.css';
-import { BsFillArrowRightCircleFill } from 'react-icons/bs';
-import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { mobile } from '../utils/responsive';
-import { Element, scroller } from 'react-scroll';
+import { Element } from 'react-scroll';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import LazyLoad from 'react-lazyload';
+import { ColorRing } from 'react-loader-spinner';
 const Gallery = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const goToPrevSlide = () => {
-    return currentImageIndex === 0
-      ? setCurrentImageIndex(slide_images.length - 1)
-      : setCurrentImageIndex((current) => current - 1);
-  };
-
-  const goToNextSlide = () => {
-    return currentImageIndex === slide_images.length - 1
-      ? setCurrentImageIndex(0)
-      : setCurrentImageIndex((current) => current + 1);
+  const [isLoading, setIsLoading] = useState(true);
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1250, min: 464 },
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 773, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
   };
 
   return (
     <Element name='gallery'>
       <Wrapper>
         <h2 className='title'>הגלרייה שלנו</h2>
+
         <Container>
-          <SlideButton>
-            <BsFillArrowLeftCircleFill
-              className='arrow-icon'
-              onClick={goToPrevSlide}
-            />
-          </SlideButton>
-          <>
-            {slide_images.map((image, index) => {
-              return (
-                <SliderItem
-                  className={
-                    index === currentImageIndex ? 'slide-active' : 'slide'
-                  }
-                  key={image.img}
-                >
-                  {index === currentImageIndex && (
-                    <LazyLoad height='375px'>
-                      <SlideImage src={slide_images[currentImageIndex].img} />
-                    </LazyLoad>
-                  )}
-                </SliderItem>
-              );
-            })}
-          </>
-          <SlideButton onClick={goToNextSlide}>
-            <BsFillArrowRightCircleFill className='arrow-icon' />
-          </SlideButton>
+          <LazyLoad
+            height={'300px'}
+            debounce={false}
+            once
+            placeholder={
+              <ColorRing
+                visible={true}
+                height='80'
+                width='80'
+                ariaLabel='blocks-loading'
+                wrapperStyle={{}}
+                wrapperClass='blocks-wrapper'
+                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+              />
+            }
+          >
+            <Carousel
+              responsive={responsive}
+              additionalTransfrom={0}
+              arrows
+              draggable={false}
+              centerMode={false}
+              containerClass='container-with-dots'
+              dotListClass=''
+              focusOnSelect={false}
+              infinite
+              itemClass=''
+              minimumTouchDrag={80}
+              rewind={false}
+              rewindWithAnimation={false}
+              rtl={true}
+              showDots={false}
+              sliderClass=''
+              slidesToSlide={1}
+              swipeable={false}
+            >
+              {slide_images.map((image) => {
+                return <SlideImage src={image.img} />;
+              })}
+            </Carousel>
+          </LazyLoad>
         </Container>
       </Wrapper>
     </Element>
@@ -93,22 +113,20 @@ const Wrapper = styled.section`
 `;
 
 const Container = styled.div`
-  display: flex;
   width: 100%;
-  padding: 3rem 5rem;
-  background-color: #81808013;
-  align-items: center;
-  justify-content: center;
+  padding: 3rem 0rem;
+  text-align: center;
   border-radius: 16px;
-  ${mobile({ padding: '2rem' })}
+  ${mobile({ padding: '1rem' })}
 `;
 const SlideImage = styled.img`
-  width: 650px;
+  width: 350px;
   outline: none;
-  height: 375px;
+  height: 275px;
   object-fit: fill;
   border-radius: 16px;
-  ${mobile({ width: '225px', height: '200px' })}
+  max-width: 350px;
+  ${mobile({ width: '100%', height: '300px' })}
 `;
 
 const SlideButton = styled.button`
@@ -120,7 +138,9 @@ const SlideButton = styled.button`
   ${mobile({ margin: '0 2rem', fontSize: '24px' })}
 `;
 
-const SliderItem = styled.div``;
+const SliderItem = styled.div`
+  display: flex;
+`;
 const Test = styled.div`
   display: flex;
   justify-content: center;
