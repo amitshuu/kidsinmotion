@@ -14,7 +14,7 @@ const Navbar = () => {
         <NavLinksDiv>
           {nav_links.map((link: any) => {
             return (
-              <Link to={link.to} duration={350} smooth={true}>
+              <Link to={link.to} duration={500} smooth={true}>
                 {link.icon ? <link.icon /> : link.title}
               </Link>
             );
