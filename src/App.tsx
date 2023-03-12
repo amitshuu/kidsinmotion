@@ -5,7 +5,8 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import OurActivities from './components/OurActivities';
 import OurTeachers from './components/OurTeachers';
-const Gallery = lazy(() => import('./components/Gallery'));
+import Gallery from './components/Gallery';
+import OurCustomers from './components/OurCustomers';
 
 const App = () => {
   return (
@@ -16,7 +17,10 @@ const App = () => {
       <LifeSkills />
       <OurActivities />
       <OurTeachers />
+
       <Gallery />
+
+      <OurCustomers />
     </main>
   );
 };
