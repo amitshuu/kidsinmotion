@@ -12,4 +12,22 @@ export const slide_images = [
   {
     img: breakdanceee,
   },
+  {
+    img: breakdance,
+  },
+  {
+    img: breakdancee,
+  },
+  {
+    img: breakdanceee,
+  },
+  {
+    img: breakdance,
+  },
+  {
+    img: breakdancee,
+  },
+  {
+    img: breakdanceee,
+  },
 ];
