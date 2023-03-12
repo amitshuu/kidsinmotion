@@ -16,7 +16,14 @@ const LifeSkills = () => {
               <SkillDiv>
                 <SkillIcon src={skill.skillIcon} />
                 <SkillTitle>{skill.skillTitle}</SkillTitle>
-                <SkillDescription>{skill.skillDesc}</SkillDescription>
+                <SkillDescription
+                  style={{
+                    marginBottom:
+                      skill.skillTitle === 'הגשמה עצמית' ? '-16px' : '0px',
+                  }}
+                >
+                  {skill.skillDesc}
+                </SkillDescription>
               </SkillDiv>
             );
           })}
@@ -39,7 +46,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   display: flex;
   width: 100%;
-  padding: 3.5rem 4rem;
+  padding: 3.5rem 2rem;
   background-color: #81808013;
   align-items: center;
   justify-content: center;
@@ -51,7 +58,6 @@ const SkillsContainer = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 3rem;
   ${mobile({ flexWrap: 'wrap' })}
 `;
 const Underline = styled.hr`
@@ -61,13 +67,19 @@ const SkillDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* height: 250px; */
+  justify-content: center;
+  max-height: 350px;
   width: 100%;
-  padding: 0rem 1rem;
+  padding: 3rem 0.4rem;
+  border: 2px solid var(--clr-orange-title);
+  border-radius: 16px;
+  margin-left: 2rem;
+  overflow: hidden;
   ${mobile({
     height: 'auto',
-    padding: '1.5rem 3rem',
+    padding: '3rem 3rem',
     width: '100%',
+    marginBottom: '2rem',
     justifyContent: 'center',
   })}
 `;
@@ -88,10 +100,12 @@ const SkillTitle = styled.p`
 
 const SkillDescription = styled.p`
   direction: rtl;
+  letter-spacing: 1px;
   color: #333;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.33;
+  font-size: 16px;
+  font-weight: 600;
+
+  /* line-height: 1.33; */
 
   ${mobile({ lineHeight: '1.5' })}
 `;
