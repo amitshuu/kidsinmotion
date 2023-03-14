@@ -16,7 +16,7 @@ const OurCustomers = () => {
           }}
         >
           <Title>אנו עובדים עם מספר מוסדות חינוך</Title>
-          <SubTitle> בין לקוחותינו:</SubTitle>
+          <SubTitle> שותפי החינוך שלנו:</SubTitle>
         </div>
         <div>
           <Carousel
@@ -90,7 +90,7 @@ const Wrapper = styled.div`
 `;
 const Container = styled.div`
   width: 100%;
-  padding: 4rem 5rem;
+  padding: 2rem 6rem;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -100,7 +100,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 46px;
+  font-size: 36px;
   display: inline-block;
   text-align: center;
   color: #333;
@@ -109,8 +109,8 @@ const Title = styled.h2`
 `;
 const SubTitle = styled.span`
   direction: rtl;
-  font-size: 48px;
-  margin-bottom: 4rem;
+  font-size: 38px;
+  margin-bottom: 3rem;
   display: inline-block;
   text-align: center;
   color: var(--clr-orange-title);
@@ -119,8 +119,8 @@ const SubTitle = styled.span`
 `;
 
 const Image = styled.img`
-  width: 105px;
-  height: 85px;
+  width: 136px;
+  height: 86px;
   pointer-events: none;
-  object-fit: fill;
+  object-fit: cove;
 `;

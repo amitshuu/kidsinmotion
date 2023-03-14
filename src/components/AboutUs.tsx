@@ -65,16 +65,15 @@ const Wrapper = styled.section`
 const Container = styled.div`
   display: flex;
   width: 100%;
-  padding: 0;
+  text-align: center;
   background-color: #81808013;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   border-radius: 16px;
-  padding: 3rem 5rem;
+  padding: 3rem 2rem;
   ${mobile({
     flexDirection: 'column',
     padding: '1rem',
-  })}/* max-height: 250px; */
+  })}
 `;
 
 const ImageContainer = styled.div`
@@ -103,6 +102,7 @@ const Description = styled.p`
 `;
 const Image = styled.img`
   width: 85%;
+  object-fit: cover;
   border-radius: 1rem;
   ${mobile({ display: 'none' })}
 `;

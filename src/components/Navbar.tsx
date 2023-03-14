@@ -14,9 +14,14 @@ const Navbar = () => {
         <NavLinksDiv>
           {nav_links.map((link: any) => {
             return (
-              <Link to={link.to} duration={500} smooth={true}>
+              <NavLink
+                icon={link.icon}
+                to={link.to}
+                duration={500}
+                smooth={true}
+              >
                 {link.icon ? <link.icon /> : link.title}
-              </Link>
+              </NavLink>
             );
           })}
         </NavLinksDiv>
@@ -32,7 +37,7 @@ const Navbar = () => {
 export default Navbar;
 
 const NavWrapper = styled.div`
-  margin-top: 2rem;
+  margin: 2rem 0rem;
   display: flex;
   justify-content: center;
 `;
@@ -46,10 +51,16 @@ const NavLinksDiv = styled.div`
   ${mobile({ display: 'none' })}
 `;
 
-const NavLink = styled.p`
+const NavLink = styled(Link)<{ icon: any }>`
   font-size: 18px;
+  padding: 6px 30px;
   cursor: pointer;
+  transition: all 0.2s ease-out;
+  border-radius: 12px;
   ${mobile({ display: 'none' })}
+  &:hover {
+    background-color: ${({ icon }) => (icon ? 'none' : '#8180802e')};
+  }
 `;
 
 const NavLogo = styled.div`

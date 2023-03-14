@@ -1,3 +1,4 @@
+import { Link } from 'react-scroll';
 import styled from 'styled-components';
 import bird from '../assets/bird.png';
 import { mobile } from '../utils/responsive';
@@ -21,8 +22,12 @@ const Hero = () => {
             <p className='description'>שתעורר השראה ותאתגר את ילדכם!</p>
           </HeroDescription>
           <ButtonContainer>
-            <ContactButton>צרו קשר</ContactButton>
-            <HeroButton>עוד עלינו</HeroButton>
+            <Link to='contact-us' duration={500} smooth={true}>
+              <ContactButton>צרו קשר</ContactButton>
+            </Link>
+            <Link to='activities' duration={500} smooth={true}>
+              <HeroButton>עוד עלינו</HeroButton>
+            </Link>
           </ButtonContainer>
         </HeroTextDiv>
       </Container>
@@ -33,7 +38,7 @@ const Hero = () => {
 export default Hero;
 
 const HeroWrapper = styled.section`
-  margin: 5rem auto;
+  margin: 3rem auto;
   display: flex;
   width: 100%;
   padding: 5rem 0rem;

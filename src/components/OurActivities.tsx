@@ -76,14 +76,16 @@ const Container = styled.div`
 const ActivitiesFlex = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
-
+  justify-content: center;
+  align-items: center;
   ${mobile({ flexWrap: 'wrap' })}
 `;
 
 const ActivityDiv = styled.div<{ imageUrl: string }>`
   display: flex;
-  width: 275px;
+  width: 30%;
+  margin: 0 1rem;
+  max-height: 175px;
   border-radius: 16px;
   padding: 0.6rem;
   background-image: url(${({ imageUrl }) => imageUrl});
@@ -94,7 +96,7 @@ const ActivityDiv = styled.div<{ imageUrl: string }>`
   align-items: end;
   flex-direction: row-reverse;
   box-shadow: 0px -80px 54px -17px rgba(0, 0, 0, 0.62) inset;
-  ${mobile({ width: '100%', marginBottom: '2rem' })}
+  ${mobile({ width: '100%', marginBottom: '2rem', maxHeight: '220px' })}
 `;
 const TextDiv = styled.div`
   margin-right: 1rem;

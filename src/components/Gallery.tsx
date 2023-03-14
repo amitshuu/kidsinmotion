@@ -34,7 +34,7 @@ const Gallery = () => {
 
         <Container>
           <LazyLoad
-            height={'300px'}
+            height={'30px'}
             debounce={false}
             once
             placeholder={
@@ -49,30 +49,38 @@ const Gallery = () => {
               />
             }
           >
-            <Carousel
-              responsive={responsive}
-              additionalTransfrom={0}
-              arrows
-              draggable={false}
-              centerMode={false}
-              containerClass='container-with-dots'
-              dotListClass=''
-              focusOnSelect={false}
-              infinite
-              itemClass=''
-              minimumTouchDrag={80}
-              rewind={false}
-              rewindWithAnimation={false}
-              rtl={true}
-              showDots={false}
-              sliderClass=''
-              slidesToSlide={1}
-              swipeable={false}
+            <div
+              style={{
+                paddingBottom: '40px',
+                position: 'relative',
+              }}
             >
-              {slide_images.map((image) => {
-                return <SlideImage src={image.img} />;
-              })}
-            </Carousel>
+              <Carousel
+                rtl={false}
+                responsive={responsive}
+                additionalTransfrom={0}
+                arrows
+                draggable={false}
+                centerMode={false}
+                containerClass='container-with-dots'
+                dotListClass='dots'
+                focusOnSelect={false}
+                infinite
+                itemClass=''
+                rewind={false}
+                rewindWithAnimation={false}
+                showDots={true}
+                renderButtonGroupOutside={false}
+                renderDotsOutside
+                sliderClass=''
+                slidesToSlide={1}
+                swipeable={false}
+              >
+                {slide_images.map((image) => {
+                  return <SlideImage src={image.img} />;
+                })}
+              </Carousel>
+            </div>
           </LazyLoad>
         </Container>
       </Wrapper>
@@ -86,7 +94,17 @@ const Wrapper = styled.section`
   text-align: center;
   width: 100%;
   margin-bottom: 3rem;
-  .active {
+  .react-multi-carousel-dot--active button {
+    background: var(--clr-orange-title);
+  }
+  .dots {
+    button {
+      border: transparent;
+      /* border: 2px solid var(--clr-orange-title); */
+    }
+  }
+
+  */ .active {
     display: flex;
   }
   .title {
@@ -114,7 +132,7 @@ const Wrapper = styled.section`
 
 const Container = styled.div`
   width: 100%;
-  padding: 3rem 0rem;
+  padding: 2rem 0rem;
   text-align: center;
   border-radius: 16px;
   ${mobile({ padding: '1rem' })}
@@ -127,23 +145,4 @@ const SlideImage = styled.img`
   border-radius: 16px;
   max-width: 350px;
   ${mobile({ width: '100%', height: '300px' })}
-`;
-
-const SlideButton = styled.button`
-  outline: none;
-  background-color: transparent;
-  border: none;
-  font-size: 36px;
-  margin: 0 3rem;
-  ${mobile({ margin: '0 2rem', fontSize: '24px' })}
-`;
-
-const SliderItem = styled.div`
-  display: flex;
-`;
-const Test = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 `;
