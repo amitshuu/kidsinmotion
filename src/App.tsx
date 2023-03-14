@@ -7,6 +7,7 @@ import OurActivities from './components/OurActivities';
 import OurTeachers from './components/OurTeachers';
 import Gallery from './components/Gallery';
 import OurCustomers from './components/OurCustomers';
+import ContactUs from './components/ContactUs';
 
 const App = () => {
   return (
@@ -14,13 +15,12 @@ const App = () => {
       <Navbar />
       <Hero />
       <AboutUs />
-      <LifeSkills />
       <OurActivities />
+      <LifeSkills />
       <OurTeachers />
-
       <Gallery />
-
       <OurCustomers />
+      <ContactUs />
     </main>
   );
 };
