@@ -8,20 +8,24 @@ import OurTeachers from './components/OurTeachers';
 import Gallery from './components/Gallery';
 import OurCustomers from './components/OurCustomers';
 import ContactUs from './components/ContactUs';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <main className='section-center'>
-      <Navbar />
-      <Hero />
-      <AboutUs />
-      <OurActivities />
-      <LifeSkills />
-      <OurTeachers />
-      <Gallery />
-      <OurCustomers />
-      <ContactUs />
-    </main>
+    <>
+      <main className='section-center'>
+        <Navbar />
+        <Hero />
+        <AboutUs />
+        <OurActivities />
+        <LifeSkills />
+        <OurTeachers />
+        <Gallery />
+        <OurCustomers />
+        <ContactUs />
+      </main>
+      <Footer />
+    </>
   );
 };
 
