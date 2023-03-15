@@ -22,3 +22,22 @@ export const nav_links = [
     to: 'home',
   },
 ];
+
+export const footer_links = [
+  {
+    title: 'גלרייה',
+    to: 'gallery',
+  },
+  {
+    title: 'פעילויות',
+    to: 'activities',
+  },
+  {
+    title: 'אודות',
+    to: 'about-us',
+  },
+  {
+    title: 'בית',
+    to: 'home',
+  },
+];
