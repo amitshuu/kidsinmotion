@@ -10,15 +10,9 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   overflow: none;
   background-image: url('./assets/so-white.png');
-  /* background-image: url('./assets/floor-tile.png'); */
-
-  /* background-size: cover; */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
 }
 
 .section-center {
