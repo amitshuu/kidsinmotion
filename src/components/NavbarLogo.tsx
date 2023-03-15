@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import bird from '../assets/bird.png';
+import bird from '../assets/logoo.png';
 
 const NavbarLogo = () => {
   return (
@@ -20,7 +20,7 @@ const LogoWrapper = styled.div`
   /* background-color: red; */
 `;
 const LogoImg = styled.img`
-  width: 105px;
+  width: 90px;
 `;
 const LogoTitle = styled.p`
   letter-spacing: 3px;

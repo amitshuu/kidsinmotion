@@ -6,6 +6,8 @@ import { Element } from 'react-scroll';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import LazyLoad from 'react-lazyload';
+import BackgroundImage from '../assets/gplaypattern.png';
+
 import { ColorRing } from 'react-loader-spinner';
 const Gallery = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,10 +30,9 @@ const Gallery = () => {
   };
 
   return (
-    <Element name='gallery'>
+    <ElementDiv name='gallery'>
+      <h2 className='title'>הגלרייה שלנו</h2>
       <Wrapper>
-        <h2 className='title'>הגלרייה שלנו</h2>
-
         <Container>
           <LazyLoad
             height={'30px'}
@@ -84,23 +85,32 @@ const Gallery = () => {
           </LazyLoad>
         </Container>
       </Wrapper>
-    </Element>
+    </ElementDiv>
   );
 };
 
 export default Gallery;
 
+const ElementDiv = styled(Element)`
+  text-align: center;
+`;
 const Wrapper = styled.section`
   text-align: center;
   width: 100%;
   margin-bottom: 3rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-image: url(${BackgroundImage});
+  padding: 3rem;
+  border-radius: 16px;
+  ${mobile({ padding: '1rem' })}
   .react-multi-carousel-dot--active button {
     background: var(--clr-orange-title);
+    color: red !important;
   }
   .dots {
     button {
       border: transparent;
-      /* border: 2px solid var(--clr-orange-title); */
+      border: 2px solid #ccc;
     }
   }
 
@@ -135,14 +145,12 @@ const Container = styled.div`
   padding: 2rem 0rem;
   text-align: center;
   border-radius: 16px;
-  ${mobile({ padding: '1rem' })}
 `;
 const SlideImage = styled.img`
-  width: 350px;
   outline: none;
-  height: 275px;
-  object-fit: fill;
+  min-height: 275px;
+  object-fit: cover;
   border-radius: 16px;
   max-width: 350px;
-  ${mobile({ width: '100%', height: '300px' })}
+  ${mobile({ maxWidth: '315px' })}
 `;

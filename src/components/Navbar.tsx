@@ -6,6 +6,8 @@ import NavbarLogo from './NavbarLogo';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link, Element } from 'react-scroll';
 import { nav_links } from '../utils/navLinks';
+import { HiPhone } from 'react-icons/hi';
+import BackgroundImage from '../assets/gplaypattern.png';
 
 const Navbar = () => {
   return (
@@ -26,7 +28,10 @@ const Navbar = () => {
           })}
         </NavLinksDiv>
         <MobileNav>
-          <GiHamburgerMenu className='menu-icon' />
+          <MobileIcon to='contact-us' smooth={true} duration={500}>
+            <HiPhone className='menu-icon' />
+            <MobileIconP>צרו קשר</MobileIconP>
+          </MobileIcon>
           <NavbarLogo />
         </MobileNav>
       </NavWrapper>
@@ -40,6 +45,30 @@ const NavWrapper = styled.div`
   margin: 2rem 0rem;
   display: flex;
   justify-content: center;
+  /* ${mobile({ display: 'none' })} */
+`;
+
+const MobileIcon = styled(Link)`
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid #333;
+  outline: none;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 0.2rem;
+  border-radius: 16px;
+  cursor: pointer;
+  /* ${mobile({ display: 'block' })} */
+`;
+
+const MobileIconP = styled.p`
+  margin: 0rem 1rem;
+  font-size: 20px;
+  color: #333;
+  /* color: #fff; */
 `;
 
 const NavLinksDiv = styled.div`
@@ -52,14 +81,16 @@ const NavLinksDiv = styled.div`
 `;
 
 const NavLink = styled(Link)<{ icon: any }>`
-  font-size: 18px;
-  padding: 6px 30px;
+  display: inline-block;
+  font-size: 20px;
+  color: #333;
+  /* padding: 6px 30px; */
   cursor: pointer;
   transition: all 0.2s ease-out;
-  border-radius: 12px;
   ${mobile({ display: 'none' })}
   &:hover {
-    background-color: ${({ icon }) => (icon ? 'none' : '#8180802e')};
+    color: var(--clr-orange-title);
+    /* background-color: ${({ icon }) => (icon ? 'none' : '#8180802e')}; */
   }
 `;
 
@@ -74,7 +105,9 @@ const MobileNav = styled.div`
   padding: 0 20px;
   /* margin-bottom: 2rem; */
   justify-content: space-between;
-
+  background-image: url(${BackgroundImage});
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
   .menu-icon {
     font-size: 42px;
     color: var(--clr-orange-title);

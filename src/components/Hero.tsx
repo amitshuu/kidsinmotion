@@ -1,7 +1,8 @@
 import { Link } from 'react-scroll';
 import styled from 'styled-components';
-import bird from '../assets/bird.png';
+import bird from '../assets/logo_with_shadow.png';
 import { mobile } from '../utils/responsive';
+import BackgroundImage from '../assets/gplaypattern.png';
 const Hero = () => {
   return (
     <HeroWrapper>
@@ -37,13 +38,18 @@ const Hero = () => {
 
 export default Hero;
 
-const HeroWrapper = styled.section`
+const HeroWrapper = styled.div`
   margin: 3rem auto;
   display: flex;
   width: 100%;
-  padding: 5rem 0rem;
-  background-color: #81808013;
+  height: 100%;
+  padding: 3rem 4rem;
+  background-image: url(${BackgroundImage});
+  ${mobile({ display: 'none' })}
+
   border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  ${mobile({ padding: '0' })}
 `;
 
 const Container = styled.div`
@@ -51,44 +57,53 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0rem 5rem;
-  max-height: 250px;
-  ${mobile({ maxHeight: '175px' })}
+  max-width: 1250px;
+  max-height: 350px;
+  ${mobile({ maxHeight: '450px', padding: '0px' })}
 `;
 const HeroImageDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1250px;
+
+  ${mobile({ alignItems: 'center', width: '100%' })}
 `;
 
 const HeroTextDiv = styled.div`
   display: flex;
-  width: 100%;
+  min-width: 450px;
   align-items: end;
   flex-direction: column;
+  width: 100%;
+
   span {
-    color: var(--clr-red-title);
+    color: var(--clr-orange-title);
   }
   ${mobile({ display: 'none' })}
 `;
 
 const HeroImg = styled.img`
-  width: 350px;
-  height: 210px;
-  margin-bottom: 1rem;
+  max-width: 300px;
+  max-height: 350px;
+  align-items: center;
+  ${mobile({ width: '75%' })}
 `;
 
 const ImgTitle = styled.p`
   font-size: 48px;
   letter-spacing: 3px;
   font-weight: 600;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
   color: #333;
+  ${mobile({ letterSpacing: '0px', marginBottom: '20px' })}
 `;
 const HeroTitle = styled.h1`
   font-size: 62px;
   line-height: 120%;
   margin-bottom: 1rem;
-  color: var(--clr-orange-title);
+  color: #333;
   letter-spacing: 1.5px;
   direction: rtl;
 `;
@@ -110,7 +125,7 @@ const ButtonContainer = styled.div`
 `;
 
 const HeroButton = styled.button`
-  background-color: #ff914de1;
+  background-color: #333;
   outline: none;
   border: none;
   color: white;
@@ -123,12 +138,14 @@ const HeroButton = styled.button`
   &:hover {
     transform: scale(1.1);
 
-    background-color: var(--clr-orange-title);
+    background-color: #b4d39b;
   }
 `;
 
 const ContactButton = styled.button`
-  background-color: #ff5757d2;
+  /* background-color: #ff5757d2; */
+  background-color: #ff914de1;
+
   cursor: pointer;
   outline: none;
   border: none;
@@ -142,6 +159,6 @@ const ContactButton = styled.button`
 
   &:hover {
     transform: scale(1.1);
-    background-color: var(--clr-red-title);
+    background-color: #b4d39b;
   }
 `;

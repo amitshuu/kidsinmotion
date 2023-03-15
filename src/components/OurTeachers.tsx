@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import yaniv from '../assets/image.jpg';
 import { mobile } from '../utils/responsive';
+import BackgroundImage from '../assets/gplaypattern.png';
+
 const OurTeachers = () => {
   return (
     <Wrapper>
@@ -15,10 +17,10 @@ const OurTeachers = () => {
             <TeacherBio>מייסד ילדים בתנועה</TeacherBio>
             <TeacherBio>מדריך ברייקדאנס והיפ הופ</TeacherBio>
             <TeacherDescription>
-              רקדן מקצועי, כיאוגרף,עוסק בריקד למעלה מ10 שנים מלמד 7 שנים בבתי
-              ספר וסטודיואים ברחבי הארץ מגילי 6 עד 18+. התחרתי עם הקבוצה שלי
-              בתחרויות בארץ ובעולם. והעלתי מופעים בתור רקדן ושותף לכיאוגרפיות
-              מהופעות בשגרירות דרום קוראיה ועד בר מצוות בת מצוות.
+              איש עסקים, רקדן מקצועי וכוריאוגרף ומתעסק בחינוך מעל 6 שנים. הרצון
+              לשנות את הסביבה הבית סיפרית לפתוחה יותר ונעימה יותר. ולהנגיש
+              לילדים מקצועות מעולם האומנות והמוזיקה. לשבור שיגרה וללמוד דרך הגוף
+              שלנו שיעורים לחיים.
             </TeacherDescription>
           </TeacherDiv>
           <TeacherDiv>
@@ -27,10 +29,10 @@ const OurTeachers = () => {
             <TeacherBio>מייסד ילדים בתנועה</TeacherBio>
             <TeacherBio>מדריך ברייקדאנס והיפ הופ</TeacherBio>
             <TeacherDescription>
-              רקדן מקצועי, כיאוגרף,עוסק בריקד למעלה מ10 שנים מלמד 7 שנים בבתי
-              ספר וסטודיואים ברחבי הארץ מגילי 6 עד 18+. התחרתי עם הקבוצה שלי
-              בתחרויות בארץ ובעולם. והעלתי מופעים בתור רקדן ושותף לכיאוגרפיות
-              מהופעות בשגרירות דרום קוראיה ועד בר מצוות בת מצוות.
+              איש עסקים, רקדן מקצועי וכוריאוגרף ומתעסק בחינוך מעל 6 שנים. הרצון
+              לשנות את הסביבה הבית סיפרית לפתוחה יותר ונעימה יותר. ולהנגיש
+              לילדים מקצועות מעולם האומנות והמוזיקה. לשבור שיגרה וללמוד דרך הגוף
+              שלנו שיעורים לחיים.
             </TeacherDescription>
           </TeacherDiv>
           <TeacherDiv>
@@ -39,10 +41,10 @@ const OurTeachers = () => {
             <TeacherBio>מייסד ילדים בתנועה</TeacherBio>
             <TeacherBio>מדריך ברייקדאנס והיפ הופ</TeacherBio>
             <TeacherDescription>
-              רקדן מקצועי, כיאוגרף,עוסק בריקד למעלה מ10 שנים מלמד 7 שנים בבתי
-              ספר וסטודיואים ברחבי הארץ מגילי 6 עד 18+. התחרתי עם הקבוצה שלי
-              בתחרויות בארץ ובעולם. והעלתי מופעים בתור רקדן ושותף לכיאוגרפיות
-              מהופעות בשגרירות דרום קוראיה ועד בר מצוות בת מצוות.
+              איש עסקים, רקדן מקצועי וכוריאוגרף ומתעסק בחינוך מעל 6 שנים. הרצון
+              לשנות את הסביבה הבית סיפרית לפתוחה יותר ונעימה יותר. ולהנגיש
+              לילדים מקצועות מעולם האומנות והמוזיקה. לשבור שיגרה וללמוד דרך הגוף
+              שלנו שיעורים לחיים.
             </TeacherDescription>
           </TeacherDiv>
         </TeachersArticle>
@@ -63,8 +65,10 @@ const Wrapper = styled.section`
 const Container = styled.div`
   display: flex;
   width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 3rem 4rem;
   background-color: #81808013;
+  background-image: url(${BackgroundImage});
   align-items: center;
   justify-content: center;
   border-radius: 16px;
@@ -87,6 +91,7 @@ const TeacherDiv = styled.div`
   text-align: center;
   flex-direction: column;
   background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   ${mobile({ width: '100%', marginBottom: '2rem' })}
 `;
@@ -103,10 +108,10 @@ const TeacherName = styled.p`
   color: var(--clr-orange-title);
   font-weight: bold;
   align-self: center;
-  margin-top: 0.5rem;
+  margin: 1rem 0rem 0.5rem 0;
 `;
 const TeacherBio = styled.p`
-  color: #999;
+  color: #aaa;
   font-weight: bold;
   font-size: 16px;
 `;
@@ -115,6 +120,7 @@ const TeacherDescription = styled.p`
   font-weight: 500;
   color: #333;
   padding: 16px;
+  font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
 `;

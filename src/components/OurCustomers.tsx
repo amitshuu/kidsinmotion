@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import styled from 'styled-components';
 import { customers } from '../utils/ourCustomers';
 import { mobile } from '../utils/responsive';
+import BackgroundImage from '../assets/gplaypattern.png';
 
 const OurCustomers = () => {
   return (
@@ -18,7 +19,7 @@ const OurCustomers = () => {
           <Title>אנו עובדים עם מספר מוסדות חינוך</Title>
           <SubTitle> שותפי החינוך שלנו:</SubTitle>
         </div>
-        <div>
+        <div style={{ padding: '15px' }}>
           <Carousel
             additionalTransfrom={0}
             arrows={false}
@@ -87,40 +88,47 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
   }
+  .title {
+    ${mobile({ fontSize: '42px' })}
+  }
 `;
 const Container = styled.div`
   width: 100%;
-  padding: 2rem 6rem;
+  padding: 4rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
+  background-image: url(${BackgroundImage});
   background-color: #81808013;
   border-radius: 16px;
-  ${mobile({ padding: '2rem' })}
+  ${mobile({ padding: '1.5rem 0rem' })}
 `;
 
 const Title = styled.h2`
-  font-size: 36px;
+  font-size: 42px;
   display: inline-block;
   text-align: center;
   color: #333;
   font-weight: 500;
-  ${mobile({ fontSize: '32px' })}
+  ${mobile({ fontSize: '30px' })}
 `;
 const SubTitle = styled.span`
   direction: rtl;
-  font-size: 38px;
+  font-size: 46px;
   margin-bottom: 3rem;
   display: inline-block;
   text-align: center;
   color: var(--clr-orange-title);
   font-weight: 600;
-  ${mobile({ fontSize: '42px' })}
+  ${mobile({ fontSize: '32px', marginTop: '1rem' })}
 `;
 
 const Image = styled.img`
-  width: 136px;
+  width: 125px;
   height: 86px;
   pointer-events: none;
-  object-fit: cove;
+  object-fit: fill;
+  z-index: 2;
 `;

@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import axios from 'axios';
 import { ColorRing } from 'react-loader-spinner';
 import { mobile } from '../utils/responsive';
+import { Element } from 'react-scroll';
 
 const ContactUsForm = () => {
   const [fullName, setFullName] = useState('');
@@ -43,61 +44,65 @@ const ContactUsForm = () => {
   };
 
   return (
-    <Form
-      onSubmit={(e) => {
-        e.preventDefault();
-        sendMessage();
-      }}
-    >
-      <InputDiv>
-        <Input
-          type='text'
-          required={true}
-          name='fullName'
-          placeholder='שם מלא'
-          onChange={(e) => setFullName(e.target.value)}
-          value={fullName}
-        />
+    <>
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+          sendMessage();
+        }}
+      >
+        <SubTitle>נשמח לשמוע ממך</SubTitle>
 
-        <Input
-          type='text'
-          required={true}
-          name='phone'
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          placeholder='מספר טלפון'
-          value={phoneNumber}
-        />
-
-        <TextArea
-          value={message}
-          required
-          name='message'
-          placeholder='הודעה'
-          onChange={(e) => setMessage(e.target.value)}
-        />
-      </InputDiv>
-      <ButtonContainer>
-        <Button>צרו קשר</Button>
-        {loading ? (
-          <Loader
-            visible={true}
-            height='80'
-            width='80'
-            ariaLabel='blocks-loading'
-            wrapperStyle={{}}
-            wrapperClass='blocks-wrapper'
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+        <InputDiv>
+          <Input
+            type='text'
+            required={true}
+            name='fullName'
+            placeholder='שם מלא'
+            onChange={(e) => setFullName(e.target.value)}
+            value={fullName}
           />
-        ) : success ? (
-          <SuccessMessageDiv>
-            <SuccessMessage>פרטייך נשלחו בהצלחה! </SuccessMessage>
-          </SuccessMessageDiv>
+
+          <Input
+            type='text'
+            required={true}
+            name='phone'
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            placeholder='מספר טלפון'
+            value={phoneNumber}
+          />
+
+          <TextArea
+            value={message}
+            required
+            name='message'
+            placeholder='הודעה'
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </InputDiv>
+        <ButtonContainer>
+          <Button>צרו קשר</Button>
+          {loading ? (
+            <Loader
+              visible={true}
+              height='80'
+              width='80'
+              ariaLabel='blocks-loading'
+              wrapperStyle={{}}
+              wrapperClass='blocks-wrapper'
+              colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            />
+          ) : success ? (
+            <SuccessMessageDiv>
+              <SuccessMessage>פרטייך נשלחו בהצלחה! </SuccessMessage>
+            </SuccessMessageDiv>
+          ) : null}
+        </ButtonContainer>
+        {error ? (
+          <p style={{ direction: 'rtl' }}>השירות אינו זמין כעת, מצטערים.</p>
         ) : null}
-      </ButtonContainer>
-      {error ? (
-        <p style={{ direction: 'rtl' }}>השירות אינו זמין כעת, מצטערים.</p>
-      ) : null}
-    </Form>
+      </Form>
+    </>
   );
 };
 
@@ -119,6 +124,10 @@ const Input = styled.input`
     border: 1px solid var(--clr-orange-title);
     outline: none;
   }
+  &::placeholder {
+    font-size: 16px;
+    padding: 0px 6px;
+  }
 `;
 const TextArea = styled.textarea`
   padding: 10px 5px;
@@ -133,10 +142,15 @@ const TextArea = styled.textarea`
     border: 1px solid var(--clr-orange-title);
     outline: none;
   }
+  &::placeholder {
+    font-size: 16px;
+    padding: 0px 6px;
+  }
 `;
 const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
+
   width: 35%;
   ${mobile({
     width: '350px',
@@ -176,6 +190,7 @@ const ButtonContainer = styled.div`
   height: 125px;
   display: flex;
   flex-direction: column;
+  margin-top: 0.6rem;
 `;
 
 const SuccessMessageDiv = styled.div`
@@ -191,4 +206,12 @@ const SuccessMessageDiv = styled.div`
 `;
 const SuccessMessage = styled.p`
   direction: rtl;
+`;
+
+const SubTitle = styled.p`
+  font-size: 48px;
+  color: #333;
+
+  margin-bottom: 2rem;
+  ${mobile({ fontSize: '42px' })}
 `;

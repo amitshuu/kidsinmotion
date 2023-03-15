@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { life_skills } from '../utils/lifeSkills';
 import { mobile } from '../utils/responsive';
 import { SkillType } from '../utils/types';
+import BackgroundImage from '../assets/gplaypattern.png';
 
 const LifeSkills = () => {
   return (
@@ -32,54 +33,46 @@ const Wrapper = styled.div`
   text-align: center;
   margin: 3rem 0rem;
   .title {
-    ${mobile({ fontSize: '45px' })};
+    ${mobile({ fontSize: '38px' })};
   }
-`;
-
-const Test = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: red;
-  max-height: 320px;
 `;
 
 const Container = styled.div`
   display: flex;
-  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 2rem 0rem;
   background-color: #81808013;
+  background-image: url(${BackgroundImage});
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  /* ${mobile({ padding: '1rem ' })} */
 `;
 const SkillsContainer = styled.div`
   display: flex;
-  width: 100%;
-  padding: 2rem 0rem;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  /* background-color: red; */
-  ${mobile({ flexWrap: 'wrap' })}
+  align-items: center;
+  gap: 22px;
+  max-width: 1250px;
+  margin: 0 auto;
+  ${mobile({
+    justifyContent: 'center',
+    padding: '1rem',
+  })}
 `;
-const Underline = styled.hr`
-  border-bottom: 2px solid red;
-`;
+
 const SkillDiv = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 350px;
   align-items: center;
   justify-content: center;
-  /* max-height: 450px; */
-  /* max-height: 100%; */
-  height: 350px;
-  /* max-height: 950px; */
-  max-width: 325px;
+  max-width: 275px;
   width: 100%;
-  padding: 2rem 0.5rem;
-  border: 2px solid var(--clr-orange-title);
+  padding: 2rem 1rem;
+  border: 1px solid #d7d6d6;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  margin: 0rem 1rem;
   overflow: hidden;
   ${mobile({
     height: 'auto',
@@ -103,14 +96,14 @@ const SkillTitle = styled.p`
   font-size: 28px;
   color: #ec7d10;
   margin-bottom: 4px;
-  ${mobile({ fontSize: '26px', margin: '0' })}
+  ${mobile({ fontSize: '26px', marginBottom: '0.5rem' })}
 `;
 
 const SkillDescription = styled.p`
   direction: rtl;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   color: #333;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
 
   /* line-height: 1.33; */
