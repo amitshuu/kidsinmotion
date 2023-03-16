@@ -45,7 +45,6 @@ const NavWrapper = styled.div`
   margin: 2rem 0rem;
   display: flex;
   justify-content: center;
-  /* ${mobile({ display: 'none' })} */
 `;
 
 const MobileIcon = styled(Link)`

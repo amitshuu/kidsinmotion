@@ -75,7 +75,8 @@ const Gallery = () => {
                 renderDotsOutside
                 sliderClass=''
                 slidesToSlide={1}
-                swipeable={false}
+                // swipeable={false}
+                minimumTouchDrag={1}
               >
                 {slide_images.map((image) => {
                   return <SlideImage src={image.img} />;
@@ -93,6 +94,9 @@ export default Gallery;
 
 const ElementDiv = styled(Element)`
   text-align: center;
+  .title {
+    ${mobile({ fontSize: '48px' })};
+  }
 `;
 const Wrapper = styled.section`
   text-align: center;
@@ -117,9 +121,7 @@ const Wrapper = styled.section`
   */ .active {
     display: flex;
   }
-  .title {
-    ${mobile({ fontSize: '46px' })};
-  }
+
   .slide-active {
     opacity: 1;
     transition-duration: 1s;
@@ -151,6 +153,7 @@ const SlideImage = styled.img`
   min-height: 275px;
   object-fit: cover;
   border-radius: 16px;
+  cursor: pointer;
   max-width: 350px;
   ${mobile({ maxWidth: '315px' })}
 `;

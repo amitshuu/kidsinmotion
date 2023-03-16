@@ -153,7 +153,7 @@ const InputDiv = styled.div`
 
   width: 35%;
   ${mobile({
-    width: '350px',
+    width: '90%',
   })}
 `;
 
@@ -169,7 +169,7 @@ const Button = styled.button`
   cursor: pointer;
   margin-bottom: 1rem;
   ${mobile({
-    width: '350px',
+    width: '90%',
   })}
   &:hover {
     background-color: var(--clr-orange-title);
@@ -201,7 +201,7 @@ const SuccessMessageDiv = styled.div`
   background-color: #e0ffc7;
   border: 1px solid #b4d39b;
   ${mobile({
-    width: '350px',
+    width: '90%',
   })}
 `;
 const SuccessMessage = styled.p`

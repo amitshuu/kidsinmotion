@@ -72,16 +72,41 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  ${mobile({ padding: '1.5rem' })}
+  ${mobile({ padding: '1rem 0.5rem' })}
 `;
 const TeachersArticle = styled.article`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Style the scrollbar track and thumb */
+  &::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c7c7cc;
+    border-radius: 10px;
+    width: 2px;
+  }
+
+  /* Style the scrollbar corner */
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
   ${mobile({
-    flexDirection: 'column',
-    justifyContent: 'center',
+    overflowX: 'scroll',
     alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: '1rem 0rem',
   })}
 `;
 const TeacherDiv = styled.div`
@@ -93,7 +118,12 @@ const TeacherDiv = styled.div`
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
-  ${mobile({ width: '100%', marginBottom: '2rem' })}
+
+  ${mobile({
+    minHeight: '225px',
+    minWidth: '300px',
+    margin: '0rem 1rem',
+  })}
 `;
 const TeacherImage = styled.img`
   border-radius: 16px 16px 0px 0px;

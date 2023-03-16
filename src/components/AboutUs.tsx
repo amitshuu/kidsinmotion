@@ -18,7 +18,7 @@ const AboutUs = () => {
           <Container>
             <TextContainer>
               <SubTitleDiv>
-                <SubTitle>Kids In Motion</SubTitle>
+                <SubTitle>ילדים בתנועה</SubTitle>
                 <SubImage src={DummyIcon} />
               </SubTitleDiv>
               <Description>
@@ -57,7 +57,7 @@ const Wrapper = styled.section`
   justify-content: center;
   width: 100%;
   .title {
-    ${mobile({ fontSize: '48px' })};
+    ${mobile({ fontSize: '48px', display: 'none' })};
   }
 `;
 
@@ -114,9 +114,14 @@ const SubTitle = styled.p`
   color: #333;
   /* text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2); */
   font-weight: 600;
-  margin-right: 1.5rem;
+  margin-left: 1.5rem;
   margin-bottom: 0.5rem;
-  ${mobile({ letterSpacing: '0px', margin: '0.5rem' })}
+  ${mobile({
+    letterSpacing: '0px',
+    margin: '0.5rem',
+    borderBottom: '3px solid var(--clr-orange-title)',
+    fontSize: '44px',
+  })}
 `;
 
 const SubImage = styled.img`
@@ -129,6 +134,7 @@ const SubImage = styled.img`
 const SubTitleDiv = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: row-reverse;
   text-align: center;
   align-items: center;
   width: 100%;

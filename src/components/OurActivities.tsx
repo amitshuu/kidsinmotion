@@ -74,25 +74,56 @@ const ActivitiesFlex = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  /* overflow-x: scroll; */
+  -webkit-overflow-scrolling: touch; /* Add this line */
   align-items: center;
-  ${mobile({ flexWrap: 'wrap' })}
+
+  &::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Style the scrollbar track and thumb */
+  &::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c7c7cc;
+    border-radius: 10px;
+    width: 2px;
+  }
+
+  /* Style the scrollbar corner */
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  ${mobile({
+    overflowX: 'scroll',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: '0rem 0.3rem 1rem 0rem',
+  })}
 `;
 
 const ActivityDiv = styled.div<{ imageUrl: string }>`
   display: flex;
   width: 100%;
+  padding: 0.5rem;
   margin: 0 1rem;
   max-width: 350px;
+  min-height: 250px;
   border-radius: 16px;
   background-image: url(${({ imageUrl }) => imageUrl});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 250px;
   align-items: end;
   flex-direction: row-reverse;
-  box-shadow: 0px -80px 54px -17px rgba(0, 0, 0, 0.62) inset;
-  ${mobile({ marginBottom: '2rem' })}
+  box-shadow: 0px -80px 54px -17px rgba(0, 0, 0, 0.7) inset;
+  ${mobile({ minHeight: '225px', minWidth: '275px' })}
 `;
 const TextDiv = styled.div`
   margin-right: 1rem;

@@ -41,11 +41,12 @@ const Container = styled.div`
   display: flex;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 2rem 0rem;
-  background-color: #81808013;
+  /* background-color: #81808013; */
   background-image: url(${BackgroundImage});
   align-items: center;
   justify-content: center;
   border-radius: 16px;
+  ${mobile({ padding: '1rem 0rem' })}
 `;
 const SkillsContainer = styled.div`
   display: flex;
@@ -55,9 +56,37 @@ const SkillsContainer = styled.div`
   gap: 22px;
   max-width: 1250px;
   margin: 0 auto;
+
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Style the scrollbar track and thumb */
+  &::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c7c7cc;
+    border-radius: 10px;
+    width: 2px;
+  }
+
+  /* Style the scrollbar corner */
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
   ${mobile({
-    justifyContent: 'center',
-    padding: '1rem',
+    flexWrap: 'nowrap',
+    overflowX: 'scroll',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: '1rem ',
   })}
 `;
 
@@ -75,11 +104,10 @@ const SkillDiv = styled.div`
   border-radius: 16px;
   overflow: hidden;
   ${mobile({
-    height: 'auto',
-    padding: '1rem ',
-    width: '100%',
-    maxWidth: '450px',
-    maxHeight: '450px',
+    padding: '1rem 2rem ',
+    minWidth: '300px',
+    maxHeight: '350px',
+    minHeight: '350px',
     marginBottom: '2rem',
     justifyContent: 'center',
   })}
